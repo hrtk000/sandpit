@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Scanner</title>
+</head>
+<body>
+    <h1>Scan Your NFC Tag</h1>
+    <button id="scanButton">Start NFC Scan</button>
+    <p id="result"></p>
+
+    <script>
+        // Check if Web NFC is supported
+        if ('NFC' in window) {
+            console.log('Web NFC supported!');
+        } else {
+            document.getElementById('result').textContent = 'Web NFC is not supported on your device.';
+        }
+
+        const scanButton = document.getElementById('scanButton');
+        const resultText = document.getElementById('result');
+
+        // Handle NFC scan
+        scanButton.addEventListener('click', () => {
+            // Check if the browser supports Web NFC
+            if ('NFC' in window) {
+                navigator.nfc.requestRead().then(tag => {
+                    resultText.textContent = `NFC Tag Data: ${tag.data}`;
+                }).catch(error => {
+                    resultText.textContent = `Error reading NFC: ${error}`;
+                });
+            } else {
+                resultText.textContent = 'Web NFC is not supported in this browser.';
+            }
+        });
+    </script>
+</body>
+</html>
