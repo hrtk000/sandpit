@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Birthday Countdown</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,6 +49,13 @@
       color: #363636;
     }
 
+    textarea {
+      display: inline
+    }
+
+    label {
+      font-size: small
+    }
     #message {
       display: none;
       opacity: 1;
@@ -60,7 +70,7 @@
     }
 
     button#toggleBtn {
-      opacity: 0;
+      opacity: 0.01;
       pointer-events: none;
       position: fixed;
       top: 20px;
@@ -83,36 +93,51 @@
 </head>
 
 <body>
-  <div id="countdown">Loading countdown...</div>
-  <div id="message">
+  <div id="countdown" class="text-center">Loading countdown...</div>
+  <div id="message" class="text-center">
     <p class="bd">Happy 28th birthday!! </p>
     <p>You're getting older and wiser, you absolute unit of a human being</p>
-    <p>Keep crushing it, I'm looking your way always</p>
-    <p>Look inside your 2nd drawer! and see you soon :)</p>
+    <p>Keep on crushing it, I'm looking your way ♡⸜(˶˃ ᵕ ˂˶)⸝♡</p>
+    <p>c u tomorrow </p>
   </div>
 
-  <div id="otherPage">
-        <h2>Encrypt</h2>
-        <label>Key:</label>
-        <input type="text" id="encryptKey">
-        <label>Message:</label>
-        <textarea id="encryptMessage"></textarea>
-        <button onclick="encrypt()">Encrypt</button>
+  <div id="otherPage" class="container">
+    <div class="form-group">
+      <label for="encryptKey">Key:</label>
+      <textarea id="encryptKey" class="form-control"></textarea>
+      <label for="encryptMessage1">Message:</label>
+      <textarea id="encryptMessage1" class="form-control"></textarea>
+      <p id="output1" class="form-control"></p>
+      <textarea id="encryptMessage2" class="form-control"></textarea>
+      <p id="output2" class="form-control"></p>
+    </div>
+    
+    <button onclick="encrypt()" class="btn btn-primary mb-3">Encrypt</button>
 
-        <h2>Decrypt</h2>
-        <label>Key:</label>
-        <input type="text" id="decryptKey">
-        <label>Encrypted (Base64):</label>
-        <textarea id="decryptMessage"></textarea>
-        <button onclick="decrypt()">Decrypt</button>
+    <div class="form-group">
+      <label for="decryptKey">Decryption:</label>
+      <input type="text" id="decryptKey" class="form-control">
+    </div>
+    
+    <button onclick="decrypt()" class="btn btn-success mb-3">Decrypt</button>
 
-        <div id="output"></div>
-
+    <div class="form-group">
+      <a id="output" href="#" class="form-control" target="_blank"></a>
+    <div class="form-group">
+      <label for="copyable" id="copyableLabel"></label>
+      <p id="copyable" onclick="copyToClipboard(this)"></p>
+    </div>
+    </div>
   </div>
 
-  <button id="toggleBtn">Tap me!</button>
+  <button id="toggleBtn" class="btn btn-info">:o a surprise button?? what is this</button>
+
+  <!-- Bootstrap JS, jQuery, and Popper.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
+  <!-- Your custom JS -->
   <script src="script.js"></script>
 </body>
 </html>
-
