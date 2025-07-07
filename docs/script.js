@@ -10,7 +10,7 @@
 
     function updateCountdown() {
       const now = new Date();
-      const target = new Date(`2025-07-07T20:20:00`);
+      const target = new Date(`2025-07-07T20:23:00`);
       const timeDiff = target - now;
 
       if (timeDiff <= 0 && !countdownEnded) {
