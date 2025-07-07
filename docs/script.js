@@ -2,6 +2,7 @@
     const message = document.getElementById('message');
     const otherPage = document.getElementById('otherPage');
     const toggleBtn = document.getElementById('toggleBtn');
+    const startCountdown = new Date();
 
 
     
@@ -9,7 +10,7 @@
 
     function updateCountdown() {
       const now = new Date();
-      const target = new Date(`2025-07-07T20:12:00`);
+      const target = new Date(`2025-07-07T20:20:00`);
       const timeDiff = target - now;
 
       if (timeDiff <= 0 && !countdownEnded) {
@@ -17,8 +18,11 @@
         countdown.style.display = "none";
         message.style.display = "block";
         countdownEnded = true;
-        const sound = new Audio('hbd.m4a'); // Specify the .m4a file path
-        sound.play(); // Play the sound
+        if (startCountdown < target) {
+          const sound = new Audio("https://github.com/hrtk000/sandpit/raw/refs/heads/bday/docs/hbd.m4a"); // Specify the .m4a file path
+          sound.play(); // Play the sound
+        }
+
         return;
       }
 
